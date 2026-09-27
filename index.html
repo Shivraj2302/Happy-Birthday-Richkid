@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#120d2b" />
+    <meta name="description" content="A little birthday surprise made with love." />
+    <title>Happy Birthday, Sister!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="lock-screen" id="lockScreen">
+      <div class="lock-card">
+        <div class="lock-mark">✦</div>
+        <p class="eyebrow">A private birthday surprise</p>
+        <h1>For <em>Richkidd</em></h1>
+        <p>Enter the secret password from Shiv to open your birthday website.</p>
+        <form id="passwordForm">
+          <label for="passwordInput">Secret password</label>
+          <div class="password-row"><input id="passwordInput" type="password" autocomplete="off" placeholder="Enter password" required /><button class="unlock-button" type="submit" aria-label="Unlock">→</button></div>
+          <small id="passwordMessage" role="alert"></small>
+        </form>
+      </div>
+    </div>
+    <div class="stars" aria-hidden="true"></div>
+    <main>
+      <section class="hero" id="top">
+        <nav class="nav" aria-label="Main navigation">
+          <a class="brand" href="#top"><span>✦</span> For my sister</a>
+          <div class="nav-links">
+            <a href="#message">Message</a>
+            <a href="#letter">Letter</a>
+            <a href="#memories">Memories</a>
+            <a href="#surprise">Surprise</a>
+          </div>
+        </nav>
+
+        <div class="hero-copy">
+          <p class="eyebrow">A tiny website made just for you</p>
+          <h1>Happy Birthday,<br /><em>Richkidd.</em></h1>
+          <p class="hero-text">Today is all about celebrating your smile, your heart, and every little thing that makes you special.</p>
+          <a class="button button-primary" href="#message">Open your surprise <span>↓</span></a>
+        </div>
+
+        <div class="cake-wrap" aria-hidden="true">
+          <div class="cake-glow"></div>
+          <div class="candle"><span class="flame"></span></div>
+          <div class="cake-top"></div>
+          <div class="cake-body"><span></span><span></span><span></span></div>
+          <div class="cake-plate"></div>
+        </div>
+
+        <div class="scroll-cue"><span class="line"></span> Scroll to unwrap the day</div>
+      </section>
+
+      <section class="message section" id="message">
+        <div class="section-label">01 / A little note</div>
+        <div class="message-card reveal-on-scroll">
+          <div class="card-stamp">♥</div>
+          <p class="eyebrow">Dear sister,</p>
+          <h2>You make ordinary days feel like <em>celebrations.</em></h2>
+          <p>Thank you for being my constant cheerleader, my favourite person to laugh with, and one of the brightest parts of our family. May this new year bring you the kind of happiness you give everyone else so naturally.</p>
+          <p class="signature">With lots of love,<br /><strong>Shiv</strong></p>
+        </div>
+      </section>
+
+      <section class="letter section" id="letter">
+        <div class="section-heading reveal-on-scroll">
+          <div>
+            <div class="section-label">02 / A sealed surprise</div>
+            <h2>Open the little<br /><em>letter first.</em></h2>
+          </div>
+          <p>Tap the seal to open Shiv’s envelope. There is a tiny question waiting inside.</p>
+        </div>
+        <div class="letter-stage reveal-on-scroll">
+          <div class="envelope" id="envelope">
+            <div class="envelope-paper">
+              <span class="paper-spark">✦</span>
+              <p class="eyebrow">For Richkidd</p>
+              <h3>A little surprise<br />is waiting for you.</h3>
+              <span class="paper-signature">— Shiv</span>
+            </div>
+            <div class="envelope-back"></div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-front"></div>
+            <button class="wax-seal" id="sealButton" type="button" aria-label="Open the sealed envelope">✦</button>
+          </div>
+          <div class="letter-question" id="letterQuestion" aria-live="polite" hidden>
+            <p class="eyebrow">The envelope is open</p>
+            <h3>Wanna see what I made?</h3>
+            <div class="question-art" aria-hidden="true">♡</div>
+            <div class="question-actions">
+              <button class="answer-button answer-yes" id="yesButton" type="button">Yes!</button>
+              <button class="answer-button answer-no" id="noButton" type="button">No</button>
+            </div>
+            <p class="question-note" id="questionNote"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="memories section" id="memories">
+        <div class="section-heading reveal-on-scroll">
+          <div>
+            <div class="section-label">03 / Unlock the memories</div>
+            <h2>Four pieces.<br /><em>One happy memory.</em></h2>
+          </div>
+          <p>Tap the cards in the right order to reveal a photo. The little hint is hidden below.</p>
+        </div>
+        <div class="puzzle-area">
+          <div class="puzzle-grid" id="puzzleGrid" aria-label="Memory puzzle"></div>
+          <div class="puzzle-side">
+            <div class="hint-card"><span class="hint-icon">✦</span><span>Hint: start with the brightest corner.</span></div>
+            <button class="button button-ghost" id="resetPuzzle" type="button">Shuffle again ↻</button>
+          </div>
+        </div>
+        <div class="reveal-panel" id="photoReveal" aria-live="polite">
+          <div class="reveal-content">
+            <span class="success-icon">✦</span>
+            <p class="eyebrow">Memory unlocked!</p>
+            <h3>This moment is worth keeping forever.</h3>
+            <img src="./assets/photos/photo.jpg" alt="A favorite memory of Richkidd" onerror="this.classList.add('missing-asset'); this.alt='Add your photo at assets/photos/photo.jpg';" />
+            <p class="asset-note">Add your photo in VS Code at <code>assets/photos/photo.jpg</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="surprise section" id="surprise">
+        <div class="section-label">04 / One more thing</div>
+        <div class="video-card reveal-on-scroll">
+          <div class="video-copy">
+            <span class="video-number">03</span>
+            <p class="eyebrow">Press play when you're ready</p>
+            <h2>A message<br /><em>in motion.</em></h2>
+            <p>Some memories are better when they move. Add your birthday video to the project and let this final surprise play.</p>
+          </div>
+          <div class="video-frame" id="videoFrame">
+            <div class="video-placeholder" id="videoPlaceholder"><span>▶</span><p>Your video will appear here</p><small>Add <code>assets/video/birthday.mp4</code> in VS Code</small></div>
+            <video id="birthdayVideo" controls playsinline preload="metadata" src="./assets/video/birthday.mp4" hidden></video>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>Made with love, confetti, and a lot of memories.</p>
+        <a href="#top">Back to the top ↑</a>
+      </footer>
+    </main>
+    <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
